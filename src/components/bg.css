@@ -20,8 +20,9 @@
     bottom: 0;
     border-radius: var(--border-radius);
     transform: translateY(60%);
-   
 }
+
+.ErrorPage .bg{background-color: var(--red);}
 
 .bg .line:nth-child(1){
     left: 15%;

@@ -1,0 +1,14 @@
+.ErrorPage{
+    color: var(--text-color);
+    min-height: 100vh;
+    width: 90%;
+    max-width: var(--max-width-page);
+    margin: auto;
+
+    display: flex;
+    justify-content: center;
+    background-color: var(--bg-card-color);
+    
+    position: relative;
+    overflow: hidden;
+}

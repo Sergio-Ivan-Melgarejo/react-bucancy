@@ -5,7 +5,7 @@ import ErrorPage from './page/ErrorPage';
 
 function App() {
   return (
-    <main className="App">
+    <main className="App dark">
       
       <HashRouter>
         {/* cambiar por un nav */}

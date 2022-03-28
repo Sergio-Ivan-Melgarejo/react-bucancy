@@ -38,7 +38,7 @@
     animation-delay: 2s;
     position: relative;
     width: 100%;
-    max-width: var(--max-width);
+    max-width: var(--max-width-form);
     border-radius: var(--border-radius);
 }
 

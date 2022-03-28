@@ -5,13 +5,16 @@
   --color:#2D4263;
   
   --border-radius:3px;
-  --max-width:25em;
+  --max-width-form:25em;
+  --max-width-page: 1440px;
 
   --box-shodown-50:#2D426350;
   --box-shodown-40:#2D426340;
   --box-shodown-30:#2D426330;
   --box-shodown-20:#2D426320;
   --box-shodown-10:#2D426310;
+
+  --red:rgb(207, 62, 62);
 }
 
 .dark{
