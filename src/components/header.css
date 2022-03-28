@@ -1,0 +1,109 @@
+.header{
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+    align-items: center;
+    min-height: 12em;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.header .tittle{
+  color: var(--color);
+  position: absolute;
+  transform: translateX(-60vw);
+  font-size: 2em;
+  animation: disappearIzq 2s forwards;
+}
+
+.header .disappear{
+    position: absolute;
+    transform: translateX(60vw);
+    animation: disappearDer 2s forwards;
+    max-width: 10em;
+}
+
+.header .appear .logo,
+.header .disappear .logo{
+    width: 100%;
+}
+
+.header .appear{
+    visibility: hidden;
+    transform: scale(0);
+    opacity: 0;
+    overflow: hidden;
+    animation: appear 2s forwards;
+    animation-delay: 2s;
+    position: relative;
+    width: 100%;
+    max-width: var(--max-width);
+    border-radius: var(--border-radius);
+}
+
+@keyframes appear {
+    0%{
+        transform: scale(0);
+        padding: .0em;
+    }
+    60%{
+        transform: scale(.7);
+        padding: .4em;
+        box-shadow: var(--box-shodown-50) 0 0 0 0em, var(--box-shodown-40) 0 0 0 0em, var(--box-shodown-30) 0 0 0 0em, var(--box-shodown-20) 0 0 0 0em;
+    }
+    70%{
+        transform: scale(.3);
+        padding: .2em;
+        box-shadow: var(--box-shodown-40) 0 0 0 3em, var(--box-shodown-30) 0 0 0 6em, var(--box-shodown-20) 0 0 0 9em, var(--box-shodown-10) 0 0 0 12em;
+    }
+    100%{
+        visibility: visible;
+        transform: scale(1);
+        opacity: 1;
+        padding: .5em;
+        box-shadow: var(--box-shadow-2) 0 0 0 0em;
+    }
+}
+
+@keyframes disappearIzq {
+    0%{
+        transform: translateX(60vw);
+    }
+    50%{
+        transform: translateX(10vw) scale(.7);
+    }
+    51%{
+        transform: translateX(10vw) scale(.7);
+    }
+    85%{
+        transform: translateX(30vw) scale(.3);
+    }
+    95%{
+        transform: translateX(0vw) scale(.7);
+    }
+    100%{
+        transform: translateX(0vw) scale(.0);
+    }
+}
+
+@keyframes disappearDer {
+    0%{
+        transform: translateX(-60vw);
+    }
+    50%{
+        transform: translateX(-10vw) scale(.7);
+    }
+    51%{
+        transform: translateX(-10vw) scale(.7);
+    }
+    85%{
+        transform: translateX(-30vw) scale(.3);
+    }
+    95%{
+        transform: translateX(0vw) scale(.7);
+    }
+    100%{
+        transform: translateX(0vw) scale(.0);
+    }
+}

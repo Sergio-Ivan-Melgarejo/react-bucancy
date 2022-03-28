@@ -1,0 +1,12 @@
+.lyric {
+    text-align: center;
+    height: 100%;
+}
+
+.lyric .title{
+    margin: 1em 0;
+}
+
+.lyric .letters{
+    white-space: pre-wrap;
+}

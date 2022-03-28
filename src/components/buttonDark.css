@@ -1,0 +1,28 @@
+.buttonDark{
+    background-color: var(--bg-card-color);
+    position: absolute;
+    right: 1em;
+    bottom: 1em;
+    width: 4em;
+    height: 4em;
+    border-radius: 50%;
+    display: inline-block;
+    border: .1em solid var(--text-color);
+    cursor: pointer;
+    transition: border-color .3s ease;
+}
+.buttonDark:hover{
+    border-color: var(--color);
+}
+
+.buttonDark svg{
+    width: 100%;
+    height: 100%;
+    padding: .5em;
+    fill: var(--text-color);
+    transition: fill .3s ease;
+}
+
+.buttonDark:hover > svg{
+    fill: var(--color);
+}

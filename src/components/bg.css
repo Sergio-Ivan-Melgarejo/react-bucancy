@@ -1,0 +1,77 @@
+.bg{
+    max-width: 1300px;
+    max-height: 1300px;
+    width: 90vw;
+    height: 90vw;
+    background-color: var(--bg-color);
+    position: absolute;
+    left: 50%;
+    top: 90%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.bg .line{
+    width: 10%;
+    height: 100%;
+    background-color: var(--bg-card-color);
+    position: absolute;
+    bottom: 0;
+    border-radius: var(--border-radius);
+    transform: translateY(60%);
+   
+}
+
+.bg .line:nth-child(1){
+    left: 15%;
+     animation: bg-line-1 3s infinite ease-in-out;
+     animation-delay: 4.1s;
+}
+.bg .line:nth-child(2){
+    left: 35%;
+     animation: bg-line-2 3s infinite ease-in-out;
+     animation-delay: 4.2s;
+}
+.bg .line:nth-child(3){
+    left: 55%;
+     animation: bg-line-3 3s infinite ease-in-out;
+     animation-delay: 4.3s;
+}
+.bg .line:nth-child(4){
+    left: 75%;
+     animation: bg-line-4 3s infinite ease-in-out;
+     animation-delay: 4.4s;
+}
+
+@keyframes bg-line-1 {
+    50%{transform: translateY(35%);}   
+    100%{transform: translateY(60%);}
+}
+@keyframes bg-line-2 {
+    50%{transform: translateY(15%);}   
+    100%{transform: translateY(60%);}
+}
+@keyframes bg-line-3 {
+    50%{transform: translateY(45%);}   
+    100%{transform: translateY(60%);}
+}
+@keyframes bg-line-4 {
+    50%{transform: translateY(30%);}   
+    100%{transform: translateY(60%);}
+}
+
+
+@media screen and (min-width:568px) {
+    .bg{
+        left: 50%;
+        top: 85%;
+        transform: translate(-50%, -50%);
+    }  
+}
+@media screen and (min-width:992px) {
+  
+}
+@media screen and (min-width:1200px) {
+  
+}
