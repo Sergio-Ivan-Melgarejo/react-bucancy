@@ -7,7 +7,7 @@ import "./errorPage.css"
 const ErrorPage = () => {
   return (
     <main className='ErrorPage'>
-      <Day23 />
+      <Day23 top={"This"} center={"Page"} bottom={"doesn't exist"} />
       <Bg />
       <div className='container-effect'></div>
       <ButtonDark />

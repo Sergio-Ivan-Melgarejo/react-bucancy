@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import "./songArtist.css"
 import facebook from "../logoSocialMedia/facebook-brands.svg"
 import lastFm from "../logoSocialMedia/lastfm-brands.svg"
-import s from "../logoSocialMedia/s-solid.svg"
-import w from "../logoSocialMedia/w-solid.svg"
+import globe from "../logoSocialMedia/globe-solid.svg"
+import Day23 from './Day23'
 
 const SongArtist = ({artist}) => {
   const [acordionOpen, setAcordionOpen] = useState(true)
@@ -17,7 +17,7 @@ const SongArtist = ({artist}) => {
           {/* <img className='logo' src={artist.strArtistLogo} alt={artist.strArtist + " logo"}/> */}
           <img className='banner' src={artist.strArtistBanner} alt={ artist.strArtist + " banner"}/>
         </div>
-        <h1 className='title'>{artist.strArtist}</h1>
+        <Day23  top={""} center={artist.strArtist} bottom={""} />
       </header>
 
       {/* Arcodeon */}
@@ -47,16 +47,15 @@ const SongArtist = ({artist}) => {
       <footer className='footer'>
         {artist.strWebsite && <a className='a btn' href={"https://" + artist.strWebsite} target="_blank" rel="noreferrer">
           <span className='span-letter' >{language === "EN" ? "WebSite" : "Sitio web"}</span>
-          <img className='icon icon-s' src={s} alt={language === "EN" ? "S logo" : "logo S"} />
-          <img className='icon icon-w' src={w} alt={language === "EN" ? "W logo" : "logo W"} />
+          <img className='icon' src={globe} alt={language === "EN" ? "world" : "mundo"} />
         </a>}
         {artist.strLastFMChart && <a className='a btn' href={artist.strLastFMChart} target="__blank">
           <span className='span-letter' >Last.fm</span>
-          <img className='icon' src={lastFm} alt={language === "EN" ? "website" : "sitio web"} />
+          <img className='icon' src={lastFm} alt="Last.fm" />
         </a>}
         {artist.strFacebook && <a className='a btn' href={"https://" + artist.strFacebook} target="_blank" rel="noreferrer">
           <span className='span-letter' >Facebook</span>
-          <img className='icon icon-f' src={facebook} alt={language === "EN" ? "website" : "sitio web"} />
+          <img className='icon icon-f' src={facebook} alt="facelbook" />
         </a>}
       </footer>
 

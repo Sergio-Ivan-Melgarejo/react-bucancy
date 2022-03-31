@@ -1,51 +1,50 @@
-import React,{useState,useEffect} from 'react'
-import Loader from './Loader'
-import SongDetails from './SongDetails'
-import SongForm from './SongForm'
-import {helpHttp} from "../helpers/helpHttp"
-import { Outlet } from 'react-router-dom'
+import React,{useState} from 'react'
+import { useNavigate } from 'react-router-dom'
 
-const SongSearch = () => {
-    const [search, setSearch] = useState(null)
-    const [lyric, setLyric] = useState(null)
-    const [bio, setBio] = useState(null)
-    const [loading, setLoading] = useState(false)
+// import { Outlet } from 'react-router-dom'
 
-    useEffect(() => {
-      if(search === null) return;
+import "./songForm.css"
 
-      const fetchData = async () => {
-        const {artist,song} = search;
+const initialForm = {
+  artist:"",
+  song:""
+}
 
-        let artistUrl = `https://www.theaudiodb.com/api/v1/json/2/search.php?s=${artist}`;
-        let songUrl = `https://api.lyrics.ovh/v1/${artist}/${song}`;
-        
-        setLoading(true)
+const SongSearch = ({handleSearch}) => {
+    const [form, setForm] = useState(initialForm)
+    const navigate = useNavigate();
 
-        const [artistRes,songRes] = await Promise.all([
-          helpHttp().get(artistUrl),
-          helpHttp().get(songUrl)
-        ]);
+    const handleChange = e =>{
+      setForm(
+        {
+          ...form,
+          [e.target.name]: e.target.value,
+        }
+      );
+    }
 
-        setBio(artistRes);
-        setLyric(songRes);
-        setLoading(false)
+    const handleSutmit = (e) =>{
+      e.preventDefault();
+      if(!form.artist || !form.song ){
+        alert("datos incompletos");
+        // hacer alerta de datos incompletos
+        return
+      }
+      else{
+        handleSearch(form);
+        setForm(initialForm);
+        navigate(`/song/${form.song}`)
       }
 
-      fetchData();
-    }, [search])
-    
-    const handleSearch = (data) =>{
-      setSearch(data);
     }
 
   return (
     <>
-    {/* <h2>Song Search</h2> */}
-      {loading && <Loader />}
-      <Outlet />
-      {<SongForm handleSearch={handleSearch} />}
-      {search && !loading && <SongDetails search={search} lyric={lyric} bio={bio} />}
+      <form className='search' onSubmit={handleSutmit}>
+        <input className='search__input' type="text" name="artist" placeholder='Artist...' onChange={handleChange} value={form.artist} />
+        <input className='search__input' type="text" name="song" placeholder='Song...' onChange={handleChange} value={form.song} />
+        <input className='btn' type="submit" value="Search" />
+      </form>
     </>
   )
 }

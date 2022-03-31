@@ -1,7 +1,7 @@
-.buttonDark{
+.buttonFavorite{
     background-color: var(--bg-card-color);
     position: fixed;
-    left: 1em;
+    left: 6em;
     bottom: 1em;
     width: 4em;
     height: 4em;
@@ -12,11 +12,11 @@
     transition: border-color .3s ease;
     overflow: hidden;
 }
-.buttonDark:hover{
+.buttonFavorite:hover{
     border-color: var(--color);
 }
 
-.buttonDark svg{
+.buttonFavorite svg{
     width: 100%;
     height: 100%;
     padding: .5em;
@@ -29,8 +29,8 @@
     transition: transform .5s ease;
 }
 
-.buttonDark:hover > svg{fill: var(--color);}
+.buttonFavorite:hover > svg{fill: var(--color);}
 
-.buttonDark:hover > .svg-1{transform: translateY(-100%);}
-.buttonDark .svg-2{transform: translateY(100%);}
-.buttonDark:hover > .svg-2{transform: translateY(0%);}
+.buttonFavorite:hover > .svg-1{transform: translateY(-100%);}
+.buttonFavorite .svg-2{transform: translateY(100%);}
+.buttonFavorite:hover > .svg-2{transform: translateY(0%);}

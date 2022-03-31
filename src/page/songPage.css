@@ -1,0 +1,4 @@
+.songPage{
+    background-color: var(--bg-card-color);
+    min-height: 100vh;
+}

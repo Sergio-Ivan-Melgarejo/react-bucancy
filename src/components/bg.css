@@ -10,6 +10,7 @@
     transform: translate(-50%, -50%);
     border-radius: 50%;
     z-index: 0;
+    transition: background-color .3s ease;
 }
 
 .bg .line{

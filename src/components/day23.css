@@ -9,12 +9,18 @@
     z-index: 10;
     font-size: 1.5em;
 }
+.home .day23{ 
+    --text-color: var(--color);
+    font-size: 1.2em;
+    height: 10em;
+    height: 10em;
+}
 
 .day23__h1{
     color:  var(--text-color);
     position: relative;
     font-weight: bolder;
-    font-size: 3em;
+    font-size: 4em;
     padding: .3em .5em;
     min-height: 1.8em;
 
@@ -239,7 +245,7 @@
 }
 .day23__line-2::before{
     bottom: 0;
-    transform: translate(-100%);
+    transform: translate(-99%);
     animation: 2.5s ease forwards day23-subline-1;
 }
 

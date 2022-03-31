@@ -1,17 +1,15 @@
 import React from 'react'
 import Header from '../components/Header'
 import SongSearch from '../components/SongSearch'
-import ButtonDark from '../components/ButtonDark'
 import Bg from '../components/Bg'
 import "./home.css"
 
-const Home = () => {
+const Home = ({handleSearch}) => {
   return (
     <main className='home'>
         <Bg />
         <Header />
-        <SongSearch />
-        <ButtonDark />
+        <SongSearch handleSearch={handleSearch} />
     </main>
   )
 }

@@ -132,20 +132,6 @@
     transform: translate(-50%);
 }
 
-.artist .a:hover > .icon-s{
-    transform: translate(0%);
-}
-
-.icon-s,.icon-w{
-    width: 2em;
-    padding: .5em;
-}
-
-.icon-f{
-    width: 2.5em;
-    padding: .25em;
-}
-
 @media screen and (min-width:768px) {
     .artist  .btn{
         font-size: 1.1em;
