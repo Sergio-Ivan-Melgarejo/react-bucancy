@@ -13,7 +13,10 @@
     --text-color: var(--color);
     font-size: 1.2em;
     height: 10em;
+}
+.artist .day23{
     height: 10em;
+    --text-color: var(--color);
 }
 
 .day23__h1{
@@ -28,6 +31,8 @@
     justify-content: center;
     align-items: center;
 }
+.mitle-font{font-size: 3em;}
+.min-font{font-size: 2em;}
 
 .day23__center{
     display: block;
@@ -39,6 +44,8 @@
     transform: scaleY(0);
     animation: 2.5s ease forwards day23-center;
 }
+.artist .day23__center{animation: none;}
+.active  .artist .day23__center{animation: 2.5s ease forwards day23-center;animation-delay: 1s;}
 
 @keyframes day23-center {
     80%{transform: scaleY(0);}
@@ -64,6 +71,8 @@
     padding-left: .3em;
     animation: 2.5s ease forwards day23-span-1;
 }
+.artist .day23__span-1{animation: none;}
+.active  .artist .day23__span-1{animation: 2.5s ease forwards day23-span-1;animation-delay: 1s;}
 
 @keyframes day23-span-1 {
     80%{
@@ -86,6 +95,8 @@
     padding-right: .3em;
     animation: 2.5s ease forwards day23-span-2;
 }
+.artist .day23__span-2{animation: none;}
+.active  .artist .day23__span-2{animation: 2.5s ease forwards day23-span-2;animation-delay: 1s;}
 
 @keyframes day23-span-2 {
     80%{
@@ -107,12 +118,16 @@
     width: .15em;
     height: 100%;
 }
+.artist .day23__line-1{opacity: 0;}
+.artist .day23__line-2{opacity: 0;}
 
 .day23__line-1{
     left: 50%;
     transform: translate(-50%,-50%);
     animation: 2.5s ease forwards day23-line-1;
 }
+.artist .day23__line-1{animation: none;}
+.active  .artist .day23__line-1{animation: 2.5s ease forwards day23-line-1;animation-delay: 1s;}
 
 @keyframes day23-line-1 {
     0%{
@@ -120,6 +135,7 @@
         width: 1em;
         height: 1em;
         border-radius: 50%;
+        opacity: 1;
     }
     10%{
         transform: translate(-50%,0);
@@ -160,6 +176,7 @@
     100%{
         left: 0;
         transform: translate(0,0%);
+        opacity: 1;
     }
 }
 
@@ -168,6 +185,8 @@
     transform: translate(0,50%);
     animation: 2.5s ease forwards day23-line-2;
 }
+.artist .day23__line-2{animation: none;}
+.active  .artist .day23__line-2{animation: 2.5s ease forwards day23-line-2;animation-delay: 1s;}
 
 @keyframes day23-line-2 {
     0%{
@@ -175,6 +194,7 @@
         width: 1em;
         height: 1em;
         border-radius: 50%;
+        opacity: 1;
     }
     10%{
         transform: translate(50%,0);
@@ -215,6 +235,7 @@
     100%{
         right: 0;
         transform: translate(0,0);
+        opacity: 1;
     }
 }
 
@@ -233,21 +254,31 @@
     transform: translate(.05em);
     animation: 2.5s ease forwards day23-subline-1;
 }
+.artist .day23__line-1::after{animation: none;}
+.active  .artist .day23__line-1::after{animation: 2.5s ease forwards day23-subline-1;;animation-delay: 1s;}
+
 .day23__line-1::before{
     bottom: 0;
     transform: translate(.05em);
     animation: 2.5s ease forwards day23-subline-2;
 }
+.artist .day23__line-1::before{animation: none;}
+.active  .artist .day23__line-1::before{animation: 2.5s ease forwards day23-subline-2;animation-delay: 1s;}
 
 .day23__line-2::after{
     transform: translate(-95%);
     animation: 2.5s ease forwards day23-subline-2;
 }
+.artist .day23__line-2::after{animation: none;}
+.active  .artist .day23__line-2::after{animation: 2.5s ease forwards day23-subline-2;animation-delay: 1s;}
+
 .day23__line-2::before{
     bottom: 0;
     transform: translate(-99%);
     animation: 2.5s ease forwards day23-subline-1;
 }
+.artist .day23__line-2::before{animation: none;}
+.active  .artist .day23__line-2::before{animation: 2.5s ease forwards day23-subline-1;animation-delay: 1s;}
 
 @keyframes day23-subline-1 {
     80%{width: 0em;}

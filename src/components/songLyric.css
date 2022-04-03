@@ -1,12 +1,32 @@
+.front{
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(.5);
+    position: absolute;
+    width: 100%;
+    transition: opacity 1s ease, visibility 1s ease, transform 1s ease, max-height 1s ease;
+}
+.front.active{
+    transform: scale(1);
+    opacity: 1;
+    visibility: visible;
+    position: static;
+}
+
 .lyric {
     text-align: center;
     height: 100%;
+    padding: 3em 2em 6em;
 }
 
 .lyric .title{
     margin: 1em 0;
+    font-size: 3em;
+    text-transform: uppercase;
+    color: var(--color);
 }
 
 .lyric .letters{
     white-space: pre-wrap;
+    font-size: 1.5em;
 }

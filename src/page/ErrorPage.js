@@ -9,7 +9,6 @@ const ErrorPage = () => {
     <main className='ErrorPage'>
       <Day23 top={"This"} center={"Page"} bottom={"doesn't exist"} />
       <Bg />
-      <div className='container-effect'></div>
       <ButtonDark />
     </main>
   )

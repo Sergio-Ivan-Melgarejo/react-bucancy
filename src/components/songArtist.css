@@ -1,3 +1,21 @@
+.back{
+    transition: opacity 1s ease, visibility 1s ease, transform 1s ease;
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    width: 100%;
+    transform: scale(0.5);
+
+    --max-width-artist:40em;
+}
+.back.active{
+    transform: scale(1);
+    opacity: 1;
+    visibility: visible;
+    position: static;
+}
+
+
 .artist .header{
     flex-direction: column;
     padding: 0;
@@ -17,6 +35,7 @@
     object-fit: cover;
     object-position: center;
     display: block;
+    max-width: var(--max-width-artist);
 }
 
 @keyframes appearBaner {
@@ -31,29 +50,10 @@
     }
 }
 
-.artist .title{
-    color: transparent;
-    font-size: 3em;
-    padding: 30px 0;
-    animation: appearTitle 2s forwards ease;
-    transform: translateY(-100%);
-    animation-delay: 1s;
-}
-
-@keyframes appearTitle {
-    0%{}
-    50%{
-        transform: translateY(0%);
-        color: var(--bg-card-color);
-    }
-    100%{
-        transform: translateY(0%);
-        color: var(--text-color);
-    }
-}
-
 .artist .accordion-container{
     margin-bottom: 30px;
+    max-width: var(--max-width-artist);
+    margin: auto;
 }
 
 .artist  .btn{
@@ -90,6 +90,12 @@
     font-weight: bold;
 }
 
+.img{
+    max-width: var(--max-width-artist);
+    margin: auto;
+    width: 100%;
+}
+
 .artist .footer{
     display: flex;
     justify-content: center;
@@ -98,6 +104,8 @@
     gap: 5px;
     position: sticky;
     top: 1em;
+    max-width: var(--max-width-artist);
+    margin: auto;
 }
 
 .artist .a{

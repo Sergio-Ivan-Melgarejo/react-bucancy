@@ -1,4 +1,8 @@
 .songPage{
-    background-color: var(--bg-card-color);
     min-height: 100vh;
+    color: var(--text-color);
+    min-height: 100vh;
+    margin: auto;
+    max-width: var(--max-width-page);
+    background-color: var(--bg-card-color);
 }

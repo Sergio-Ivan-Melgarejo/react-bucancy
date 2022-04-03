@@ -5,8 +5,7 @@ import imglight from "../logoApp/logo_small_icon_only.png"
 import "./header.css"
 import Day23 from './Day23'
 
-const Header = () => {
-  const theme = true;
+const Header = ({dark}) => {
 
   return (
    <>
@@ -14,7 +13,7 @@ const Header = () => {
         <h1 className='tittle'>Bucandy</h1>
         
         <div className='disappear'>
-            <img className='logo' src={theme ? imgDark : imglight} alt="logo" />
+            <img className='logo' src={dark ? imgDark : imglight} alt="logo" />
         </div>
 
         <div className='appear'>

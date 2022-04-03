@@ -4,11 +4,11 @@ import SongSearch from '../components/SongSearch'
 import Bg from '../components/Bg'
 import "./home.css"
 
-const Home = ({handleSearch}) => {
+const Home = ({handleSearch, dark}) => {
   return (
     <main className='home'>
         <Bg />
-        <Header />
+        <Header dark={dark} />
         <SongSearch handleSearch={handleSearch} />
     </main>
   )

@@ -62,7 +62,6 @@ function App() {
     // añadir componente de carte de elimido
   }
 
-
   return (
     <main className={dark ? "App dark" : "App"}>
       
@@ -72,7 +71,13 @@ function App() {
         <NavLink to="/otrolado" className={({isActive})=>(isActive ? "link active" : "link")}>adsdas</NavLink>
 
         <Routes>
-          <Route path="/" element={<Home handleSearch={handleSearch} />} />
+          <Route path="/" element={
+            <Home 
+              handleSearch={handleSearch} 
+              dark={dark}
+            />
+          }/>
+
           <Route path="/song/*" element={
             <SongPage 
               search={search} 
@@ -80,10 +85,10 @@ function App() {
               bio={bio}
               handleSaveSong={handleSaveSong}
             />
-          } >
+          }>
             <Route path=':song' element={<SongLyric />} />
-
           </Route>
+          
           <Route path="*" element={<ErrorPage/>} />
         </Routes>
 
