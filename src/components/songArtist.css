@@ -5,8 +5,8 @@
     opacity: 0;
     width: 100%;
     transform: scale(0.5);
-
-    --max-width-artist:40em;
+    box-sizing: border-box;
+    margin: auto;
 }
 .back.active{
     transform: scale(1);
@@ -15,18 +15,60 @@
     position: static;
 }
 
-
-.artist .header{
+.artist .container{
+    display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 0;
+    gap: 1em;
 }
 
-.artist .container{
-    transform: translate(-100%);
-    animation: appearBaner 2s forwards ease;
-    border: .2em solid transparent;
-    position: relative;
-    z-index: 10;
+.artist .day23{
+    margin: auto;
+    width: 100%;
+    min-width: 350px;
+    font-size: 1em;
+}
+
+.img{
+    max-width: var(--max-width-artist);
+    margin: 0;
+    flex: 1 1 1px;
+    width:100%;
+    max-width:350px;
+}
+
+.artist .ul-container{
+    margin-bottom: 30px;
+    margin: auto;
+}
+
+.artist .ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1em 0;
+    border: none;
+    padding: 1em;
+    font-size: 1.2em;
+    margin: 1em auto;
+}
+
+.artist .li{
+    min-width: 250px;
+    width: 33%;
+    font-size: .8em;
+}
+
+.artist .li:last-child{
+    width: 100%;
+}
+
+.artist .span{
+    color: var(--color);
+    font-weight: bold;
 }
 
 .artist .banner{
@@ -35,65 +77,6 @@
     object-fit: cover;
     object-position: center;
     display: block;
-    max-width: var(--max-width-artist);
-}
-
-@keyframes appearBaner {
-    0%{}
-    50%{
-        transform: translate(0%);
-        border: .2em solid transparent;
-    }
-    100%{
-        transform: translate(0%);
-        border: .2em solid var(--text-color);
-    }
-}
-
-.artist .accordion-container{
-    margin-bottom: 30px;
-    max-width: var(--max-width-artist);
-    margin: auto;
-}
-
-.artist  .btn{
-    border-radius: 0;
-    font-weight: bolder;
-    font-size: 1.1em;
-    padding: .5em;
-}
-
-.artist .accordion{
-    overflow: hidden;
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 1em 0;
-    border: .2em solid var(--text-color);
-    padding: 1em;
-}
-
-.artist .accordion.hidden{
-    height: 0;
-    border: .2em solid transparent;
-    padding: 0;
-}
-
-.artist .li{
-    min-width: 40%;
-    font-size: .8em;
-}
-
-.artist .span{
-    color: var(--color);
-    font-weight: bold;
-}
-
-.img{
-    max-width: var(--max-width-artist);
-    margin: auto;
-    width: 100%;
 }
 
 .artist .footer{
@@ -104,8 +87,8 @@
     gap: 5px;
     position: sticky;
     top: 1em;
-    max-width: var(--max-width-artist);
     margin: auto;
+    margin-bottom: 4em;
 }
 
 .artist .a{
@@ -141,7 +124,7 @@
 }
 
 @media screen and (min-width:768px) {
-    .artist  .btn{
+    /* .artist  .btn{
         font-size: 1.1em;
         padding: .5em;
     }
@@ -149,20 +132,33 @@
     .artist .li{
         font-size: .9em;
     }
-    
+     */
+     
+    .artist .container{
+        flex-direction: row;
+    }
 }
 
 @media screen and (min-width:966px) {
-    .artist  .btn{
+    /* .artist  .btn{
         font-size: 1.2em;
         padding: .5em;
     }
 
     .artist .li{
         font-size: 1em;
+    } */
+
+    .artist .day23{
+        font-size: 1.2em;
+    }
+    .artist .ul{
+        border: .8em solid var(--color);
     }
 }
 
 @media screen and (min-width:1200px) {
-  
+    .artist .day23{
+        font-size: 1.35em;
+    }
 }

@@ -6,7 +6,8 @@
     height: 100%;
     left: 0;
     top: 0;
-    box-shadow: 0 0 10vw var(--bg-color) inset;
+    box-shadow: 0 0 10vw var(--color) inset;
+    color: var(--color);
 }
 
 .wrapper{
@@ -22,7 +23,7 @@
     height:20px;
     position: absolute;
     border-radius: 50%;
-    background-color: var(--text-color);
+    background-color: var(--color);
     left:15%;
     transform-origin: 50%;
     animation: circle .5s alternate infinite ease;
@@ -95,6 +96,6 @@
     font-family: 'Lato';
     font-size: 20px;
     letter-spacing: 12px;
-    color: var(--text-color);
+    color: var(--color);
     left:15%;
 }

@@ -4,23 +4,27 @@ import SongDetails from '../components/SongDetails'
 import Loader from '../components/Loader'
 import ButtonFavorite from '../components/ButtonFavorite'
 import "./songPage.css"
+import ButtonToUp from '../components/ButtonToUp'
 
-const SongPage = ({ search, lyric, bio, handleSaveSong }) => {
-  console.log(search)
+const SongPage = ({ loading, search, lyric, setLyric, bio, setBio, handleSaveSong, language }) => {
   const [songOrArtist, setSongOrArtist] = useState(false)
+
   return (
     <>
       <div className='songPage'>
-        <Nav songOrArtist={songOrArtist} setSongOrArtist={setSongOrArtist} />
+        <Nav language={language} setLyric={setLyric} setBio={setBio} songOrArtist={songOrArtist} setSongOrArtist={setSongOrArtist} search={search} lyric={lyric} bio={bio} />
         {
-          lyric || bio ?
-            <SongDetails search={search} lyric={lyric} bio={bio} songOrArtist={songOrArtist} />
+          !loading ?
+            <>
+              <SongDetails language={language} search={search} lyric={lyric} bio={bio} songOrArtist={songOrArtist} />
+              <ButtonToUp />
+            </>
             :
-            <Loader />
+            <Loader language={language} />
         }
       </div>
       {
-        (lyric) && <ButtonFavorite handleSaveSong={handleSaveSong} />
+        lyric?.lyrics ? <ButtonFavorite handleSaveSong={handleSaveSong} /> : null
       }
     </>
   )

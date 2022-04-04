@@ -1,16 +1,14 @@
 import React,{useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 
-// import { Outlet } from 'react-router-dom'
-
-import "./songForm.css"
+import "./songSearch.css"
 
 const initialForm = {
   artist:"",
   song:""
 }
 
-const SongSearch = ({handleSearch}) => {
+const SongSearch = ({handleSearch,language}) => {
     const [form, setForm] = useState(initialForm)
     const navigate = useNavigate();
 
@@ -41,9 +39,9 @@ const SongSearch = ({handleSearch}) => {
   return (
     <>
       <form className='search' onSubmit={handleSutmit}>
-        <input className='search__input' type="text" name="artist" placeholder='Artist...' onChange={handleChange} value={form.artist} />
-        <input className='search__input' type="text" name="song" placeholder='Song...' onChange={handleChange} value={form.song} />
-        <input className='btn' type="submit" value="Search" />
+        <input className='search__input' type="text" name="artist" placeholder={language === "EN" ? 'Artist ...' : "Artista ..."} onChange={handleChange} value={form.artist} />
+        <input className='search__input' type="text" name="song" placeholder={language === "EN" ? 'Song ...' : "Canción ..."} onChange={handleChange} value={form.song} />
+        <input className='btn' type="submit" value={language === "EN" ? "Search" : "Buscar"} />
       </form>
     </>
   )

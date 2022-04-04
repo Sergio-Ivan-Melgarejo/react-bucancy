@@ -9,14 +9,18 @@ import ButtonDark from './components/ButtonDark';
 import {helpHttp} from "./helpers/helpHttp"
 
 import './App.css';
+import ButtonLanguages from './components/ButtonLanguages';
 
 // localStorage
 let mySongsInit = JSON.parse(localStorage.getItem("mySongs")) || [];
 let getDark = localStorage.getItem("dark");
 getDark ? getDark = JSON.parse(getDark) : getDark = true;
 
+let getLanguage = localStorage.getItem("language") || "EN";
+
 function App() {
   const [dark, setDark] = useState(getDark)
+  const [language, setLanguage] = useState(getLanguage)
 
   const [search, setSearch] = useState(null)
   const [lyric, setLyric] = useState(null)
@@ -66,24 +70,23 @@ function App() {
     <main className={dark ? "App dark" : "App"}>
       
       <HashRouter>
-        {/* cambiar por un nav */}
-        <NavLink to="/" className={({isActive})=>(isActive ? "link active" : "link")}>Home</NavLink>
-        <NavLink to="/otrolado" className={({isActive})=>(isActive ? "link active" : "link")}>adsdas</NavLink>
-
         <Routes>
           <Route path="/" element={
             <Home 
               handleSearch={handleSearch} 
               dark={dark}
+              language={language}
             />
           }/>
 
           <Route path="/song/*" element={
             <SongPage 
-              search={search} 
-              lyric={lyric} 
-              bio={bio}
+              search={search}
+              lyric={lyric} setLyric={setLyric} 
+              bio={bio} setBio={setBio}
               handleSaveSong={handleSaveSong}
+              language={language}
+              loading={loading}
             />
           }>
             <Route path=':song' element={<SongLyric />} />
@@ -95,6 +98,7 @@ function App() {
       </HashRouter>
 
       <ButtonDark dark={dark} setDark={setDark} />
+      <ButtonLanguages language={language} setLanguage={setLanguage} />
     </main>
   );
 }

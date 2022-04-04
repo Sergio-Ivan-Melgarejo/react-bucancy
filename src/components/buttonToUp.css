@@ -1,0 +1,75 @@
+.button-go-up{
+    width: 2.8em;
+    height: 2.8em;
+    position: fixed;
+    bottom: .6em;
+    right: .6em;
+    background-color: var(--text-color);
+    border-radius: 50%;
+    padding: .1em;
+    transition: transform .5s ease-in, opacity .3s ease-in, box-shadow 1s ease-in, background-color .3s ease;
+    transform: scale(0);
+    box-shadow:  var(--primary-color) 0px 0px 0px 0em;
+    
+    z-index: 10;
+    animation: apppearButtonGoUp .5s linear forwards;
+}
+
+.button-go-up:hover{background-color: var(--color);}
+
+.button-go-up.active{
+    animation: disapppearButtonGoUp .5s linear forwards;
+}
+
+.button-go-up svg{
+    transition: opacity .3s ease;
+    transition: fill .5s ease;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    fill: var(--bg-color);
+}
+
+@keyframes apppearButtonGoUp {
+    0%{
+        transform: scale(0);
+        box-shadow:  var(--color) 0px 0px 0px 0.001em;
+    }
+    60%{
+        transform: scale(.7);
+        box-shadow:  var(--color) 0px 0px 0px .005em;
+    }
+    80%{
+        transform: scale(.3);
+        box-shadow:  var(--color) 0px 0px 0px .25em;
+    }
+    99%{
+        transform: scale(1);
+        box-shadow:  var(--color) 0px 0px 0px .7em;
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+@keyframes disapppearButtonGoUp {
+    0%{
+        transform: scale(1);
+        box-shadow:  var(--color) 0px 0px 0px 0em;
+    }
+    60%{
+        transform: scale(.3);
+        box-shadow:  var(--color) 0px 0px 0px 0em;
+    }
+    80%{
+        transform: scale(.7);
+        box-shadow:  var(--color) 0px 0px 0px 1em;
+    }
+    99%{
+        transform: scale(0);
+        box-shadow:  var(--color) 0px 0px 0px 1.2em;
+    }
+    100%{
+        transform: scale(0);
+    }
+}

@@ -1,7 +1,7 @@
 .buttonFavorite{
     background-color: var(--bg-card-color);
     position: fixed;
-    left: 6em;
+    left: 10em;
     bottom: 1em;
     width: 4em;
     height: 4em;

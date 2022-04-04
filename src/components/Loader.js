@@ -1,7 +1,7 @@
 import React from 'react'
 import "./loader.css"
 
-const Loader = () => {
+const Loader = ({language}) => {
   return (
     <div className='loading'>
         <div className="wrapper">
@@ -11,7 +11,7 @@ const Loader = () => {
             <div className="shadow"></div>
             <div className="shadow"></div>
             <div className="shadow"></div>
-            <span>Loading</span>
+            <span>{language === "EN" ? "Loading" : "Cargando"}</span>
         </div>
     </div>
   )

@@ -22,7 +22,7 @@
 }
 
 .search__input::placeholder{
-    text-align: center;
+    font-size: .8em;
 }
 
 .btn:hover{

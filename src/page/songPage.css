@@ -1,3 +1,7 @@
+.html{
+    scroll-behavior: smooth;
+}
+
 .songPage{
     min-height: 100vh;
     color: var(--text-color);
@@ -5,4 +9,5 @@
     margin: auto;
     max-width: var(--max-width-page);
     background-color: var(--bg-card-color);
+    position: relative;
 }

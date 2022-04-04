@@ -25,6 +25,12 @@
 
 .ErrorPage .bg{background-color: var(--red);}
 
+.songPage .bg{
+    background-color: var(--red);
+    top: 100%;
+    transform: translate(-50%,0%);
+}
+
 .bg .line:nth-child(1){
     left: 15%;
      animation: bg-line-1 3s infinite ease-in-out;

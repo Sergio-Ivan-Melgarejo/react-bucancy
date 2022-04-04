@@ -1,29 +1,23 @@
-import React, { useState } from 'react'
+import React from 'react'
 import "./songArtist.css"
 import facebook from "../logoSocialMedia/facebook-brands.svg"
 import lastFm from "../logoSocialMedia/lastfm-brands.svg"
 import globe from "../logoSocialMedia/globe-solid.svg"
 import Day23 from './Day23'
 
-const SongArtist = ({artist}) => {
-  const [acordionOpen, setAcordionOpen] = useState(true)
-  const language = "EN";
+const SongArtist = ({artist, language,loading}) => {
   return (
     <article className='artist'>
-
-      {/* Titulo */}
-      <header className='header'>
-        <div className='container'>
-          {/* <img className='logo' src={artist.strArtistLogo} alt={artist.strArtist + " logo"}/> */}
-          <img className='banner' src={artist.strArtistBanner} alt={ artist.strArtist + " banner"}/>
-        </div>
-        <Day23  top={""} center={artist.strArtist} bottom={""} />
-      </header>
+      {/* <img className='logo' src={artist.strArtistLogo} alt={artist.strArtist + " logo"}/> */}
+      {/* artista */}
+      <div className='container'>
+        <img className='img' src={artist.strArtistThumb} alt={artist.strArtist} />
+        <Day23 center={artist.strArtist}/>
+      </div>
 
       {/* Arcodeon */}
-      <section className='accordion-container'>
-        <button onClick={()=>setAcordionOpen(!acordionOpen)} className='btn'>{language === "EN" ? "More Information" : "Más información"}</button>
-          <ul className={acordionOpen ? 'accordion hidden' : "accordion"}>
+      <section className='ul-container'>
+          <ul className="ul">
             <li className="li" ><span className='span'>{artist.strArtistAlternate ? artist.strArtistAlternate : artist.strArtist}</span></li>
             <li className="li" ><span className='span'>{language === "EN" ? "Date: " : "Fecha: "}</span>{artist.intBornYear} - {artist.intDiedYear || language === "EN" ? "Present" : "Presente"}</li>
             <li className="li" ><span className='span'>{language === "EN" ? "Country: " : "Pais: " }</span>{artist.strCountry}</li>
@@ -40,11 +34,9 @@ const SongArtist = ({artist}) => {
             </li>
           </ul>
       </section>
-
-      {/* artista */}
-      <img className='img' src={artist.strArtistThumb} alt={artist.strArtist} />
       
       <footer className='footer'>
+      <img className='banner' src={artist.strArtistBanner} alt={ artist.strArtist + " banner"}/>
         {artist.strWebsite && <a className='a btn' href={"https://" + artist.strWebsite} target="_blank" rel="noreferrer">
           <span className='span-letter' >{language === "EN" ? "WebSite" : "Sitio web"}</span>
           <img className='icon' src={globe} alt={language === "EN" ? "world" : "mundo"} />

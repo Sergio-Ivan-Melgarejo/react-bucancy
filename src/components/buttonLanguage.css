@@ -1,0 +1,35 @@
+.btn-language{
+    width: 4em;
+    height: 4em;
+    position: fixed;
+    bottom: 1em;
+    left: 5.5em;
+    border-radius: 50%;
+    background-color: var(--bg-color);
+    border: .1em solid var(--text-color);
+    padding: .5em;
+    cursor: pointer;
+    fill: var(--text-color);
+    transition: fill .5s ease, border-color .5s ease, background-color .5s ease;
+}
+
+.btn-language:hover{
+    fill: var(--color);
+    border-color: var(--color);
+}
+
+
+.btn-language.active{
+    fill: var(--color);
+    border-color: var(--color);
+}
+.btn-language.active:hover{
+    fill: var(--text-color);
+    border-color: var(--text-color);
+}
+
+.btn-language .svg{
+    width: 100%;
+    height: 100%;
+}
+

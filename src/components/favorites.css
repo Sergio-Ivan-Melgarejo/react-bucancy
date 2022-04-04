@@ -1,0 +1,105 @@
+.favorites{
+    position: relative;
+    border: .4em solid var(--color);
+    max-width: var(--max-width-form);
+    margin: 4em 0 5em;
+    width: 100%;
+    padding: 1.5em 1em 0em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.favorite__title{
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-1.8em);
+    color: var(--color);
+}
+
+.favorite__container{
+    display: block;
+    border: none;
+    width: 8em;
+    height: 2.5em;
+    background-color: var(--color);
+    position: relative;
+    border-radius: 1em;
+    margin-bottom: 1.5em;
+    cursor: pointer;
+    transform: scale(.9);
+    transition: transform .5s ease;
+}
+.favorite__container:hover{transform: scale(1);}
+
+.favorite__logo{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    width: 90%;
+    height: 100%;
+    left: 50%;
+    transform: translate(-50%,-100%);
+}
+
+.favorite__song{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    transform: translateY(-300%);
+    background-color: var(--bg-card-color);
+    color: var(--text-color);
+    border-radius: 10px;
+    padding: 1em .5em;
+    text-align: center;
+    font-size: .8em;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .5s ease, visibility .5s ease, transform .5s ease;
+}
+
+.favorite__container:hover > .favorite__song{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-180%);
+}
+
+.favorite__song .span{
+    display: block;
+    width: 1em;
+    height: 1em;
+    background-color: var(--bg-card-color);
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%,50%) rotate(45deg);
+}
+
+.favorite__delete{
+    background-color: var(--bg-card-color);
+    border-radius: 50%;
+    padding: .1em;
+    fill: var(--bg-color);
+    width: 2.5em;
+    height: 2.5em;
+    position: absolute;
+    transform: translate(200%,-50%);
+    visibility: hidden;
+    opacity: 0;
+    right: 0;
+    transition: opacity .5s ease, visibility .5s ease, transform .5s ease, fill .5s ease;
+}
+
+.favorite__container:hover > .favorite__delete{
+    opacity: 1;
+    visibility: visible;
+    transform: translate(100%,-50%);
+}
+
+.favorite__delete:hover{
+    fill: var(--red);
+}
