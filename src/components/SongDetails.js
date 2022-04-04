@@ -4,9 +4,12 @@ import SongArtist from './SongArtist'
 import SongLyric from './SongLyric'
 import "./songDetails.css"
 import Bg from './Bg'
+import { useParams } from 'react-router-dom'
 
 const SongDetails = ({search,lyric,bio,songOrArtist, language}) => {
+  const params = useParams();
   if(!lyric || !bio) return null;
+  console.log(params)
   return (
     <div className='container-effect'>  
       <div className={songOrArtist ? "front active" :'front'}>

@@ -3,13 +3,13 @@ import { HashRouter, Routes, Route, NavLink } from 'react-router-dom';
 import Home from './page/Home';
 import ErrorPage from './page/ErrorPage';
 import SongPage from './page/SongPage';
-import SongLyric from './components/SongLyric';
 import ButtonDark from './components/ButtonDark';
 
 import {helpHttp} from "./helpers/helpHttp"
 
 import './App.css';
 import ButtonLanguages from './components/ButtonLanguages';
+import SongDetails from './components/SongDetails';
 
 // localStorage
 let mySongsInit = JSON.parse(localStorage.getItem("mySongs")) || [];
@@ -89,7 +89,14 @@ function App() {
               loading={loading}
             />
           }>
-            <Route path=':song' element={<SongLyric />} />
+            <Route path=':id' element={
+            <SongDetails 
+            language={language} 
+            search={search} 
+            lyric={lyric} 
+            bio={bio} 
+            />
+            } />
           </Route>
           
           <Route path="*" element={<ErrorPage/>} />

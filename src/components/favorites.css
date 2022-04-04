@@ -7,7 +7,8 @@
     padding: 1.5em 1em 0em;
     display: flex;
     flex-wrap: wrap;
-    gap: 1em;
+    justify-content: space-evenly;
+    gap: .5em;
 }
 
 .favorite__title{
@@ -21,12 +22,12 @@
 .favorite__container{
     display: block;
     border: none;
-    width: 8em;
-    height: 2.5em;
+    width: 10em;
+    height: 4em;
     background-color: var(--color);
     position: relative;
     border-radius: 1em;
-    margin-bottom: 1.5em;
+    margin-bottom: 2.5em;
     cursor: pointer;
     transform: scale(.9);
     transition: transform .5s ease;
@@ -65,7 +66,7 @@
 .favorite__container:hover > .favorite__song{
     opacity: 1;
     visibility: visible;
-    transform: translateY(-180%);
+    transform: translateY(-200%);
 }
 
 .favorite__song .span{
@@ -79,27 +80,37 @@
     transform: translate(-50%,50%) rotate(45deg);
 }
 
+.favorite__play,
 .favorite__delete{
     background-color: var(--bg-card-color);
     border-radius: 50%;
     padding: .1em;
     fill: var(--bg-color);
-    width: 2.5em;
-    height: 2.5em;
+    width: 3.5em;
+    height: 3.5em;
     position: absolute;
-    transform: translate(200%,-50%);
+    transform: translate(0,100%);
     visibility: hidden;
     opacity: 0;
-    right: 0;
+    right: 10%;
     transition: opacity .5s ease, visibility .5s ease, transform .5s ease, fill .5s ease;
 }
 
+.favorite__play{
+    left: 10%;
+}
+
+.favorite__container:hover > .favorite__play,
 .favorite__container:hover > .favorite__delete{
     opacity: 1;
     visibility: visible;
-    transform: translate(100%,-50%);
+    transform: translate(0,0%);
 }
 
 .favorite__delete:hover{
     fill: var(--red);
+}
+
+.favorite__play:hover{
+    fill: var(--color);
 }
