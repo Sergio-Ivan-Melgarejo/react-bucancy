@@ -5,17 +5,14 @@ import "./home.css"
 import Day23 from '../components/Day23'
 import Favorites from '../components/Favorites'
 
-const favorites = localStorage.getItem("favorites");
-
-const Home = ({handleSearch, language,handleDeleteSong}) => {
-  console.log(favorites)
+const Home = ({handleSearch, language, handleDeleteSong, mySongs, setBio, setLyric, setSearch}) => {
   return (
     <main className='home'>
         <Bg />
         <Day23 center={"Bucandy"} />
         <SongSearch handleSearch={handleSearch} language={language} />
         {
-          favorites && <Favorites handleDeleteSong={handleDeleteSong} favorites={favorites} language={language} />
+          mySongs.length > 0 ? <Favorites handleDeleteSong={handleDeleteSong} mySongs={mySongs} language={language} /> : null
         }
     </main>
   )

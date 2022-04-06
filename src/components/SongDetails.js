@@ -4,12 +4,29 @@ import SongArtist from './SongArtist'
 import SongLyric from './SongLyric'
 import "./songDetails.css"
 import Bg from './Bg'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
-const SongDetails = ({search,lyric,bio,songOrArtist, language}) => {
+const SongDetails = ({search,lyric,bio,songOrArtist, language, handleSearch}) => {
   const params = useParams();
-  if(!lyric || !bio) return null;
-  console.log(params)
+  const navigate = useNavigate();
+
+  // if(!lyric || !bio) return null;
+
+  if(!lyric || !bio || !search){
+    console.log(!params.id,params.id)
+      if(!params.id) {
+        navigate("/this-page-do-not-exist/")
+        return null
+    }
+
+    if(params.id){
+      let [artist,song] = params.id.split("=")
+      handleSearch({artist,song})
+      navigate(`/song/${artist}=${song}`)
+      return null
+    }
+  };
+
   return (
     <div className='container-effect'>  
       <div className={songOrArtist ? "front active" :'front'}>
@@ -25,7 +42,7 @@ const SongDetails = ({search,lyric,bio,songOrArtist, language}) => {
             <Bg />
           </>
           : 
-          <SongLyric songOrArtist={songOrArtist} title={search.song} lyrics={lyric.lyrics}
+          <SongLyric songOrArtist={songOrArtist} title={ search.song ? search.song : (language === "EN" ? "Letter" : "Letra")} lyrics={lyric.lyrics}
           />
         }   
       </div>

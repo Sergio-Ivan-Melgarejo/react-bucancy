@@ -6,9 +6,19 @@
     margin: auto;
 
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     background-color: var(--bg-card-color);
     
     position: relative;
     overflow: hidden;
+    border: 1px solid red;
+}
+
+.error-page-btn{
+    text-decoration: none;
+    position: relative;
+    max-width: var(--max-width-form);
+    text-align: center;
+    font-weight: bold;
 }

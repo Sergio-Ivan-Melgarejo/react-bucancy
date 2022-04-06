@@ -31,7 +31,7 @@ const SongSearch = ({handleSearch,language}) => {
       else{
         handleSearch(form);
         setForm(initialForm);
-        navigate(`/song/${form.song}`)
+        navigate(`/song/${form.artist}=${form.song}`)
       }
 
     }

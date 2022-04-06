@@ -36,7 +36,9 @@ const SongArtist = ({artist, language,loading}) => {
       </section>
       
       <footer className='footer'>
-      <img className='banner' src={artist.strArtistBanner} alt={ artist.strArtist + " banner"}/>
+        { 
+          artist.strArtistBanner ? <img className='banner' src={artist.strArtistBanner} alt={ artist.strArtist + " banner"}/> : null
+        }
         {artist.strWebsite && <a className='a btn' href={"https://" + artist.strWebsite} target="_blank" rel="noreferrer">
           <span className='span-letter' >{language === "EN" ? "WebSite" : "Sitio web"}</span>
           <img className='icon' src={globe} alt={language === "EN" ? "world" : "mundo"} />

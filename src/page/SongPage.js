@@ -6,7 +6,7 @@ import ButtonFavorite from '../components/ButtonFavorite'
 import "./songPage.css"
 import ButtonToUp from '../components/ButtonToUp'
 
-const SongPage = ({ loading, search, lyric, setLyric, bio, setBio, handleSaveSong, language }) => {
+const SongPage = ({ loading, search, lyric, setLyric, bio, setBio, handleSaveSong, language, handleDeleteSong, handleSearch }) => {
   const [songOrArtist, setSongOrArtist] = useState(false)
 
   return (
@@ -16,7 +16,8 @@ const SongPage = ({ loading, search, lyric, setLyric, bio, setBio, handleSaveSon
         {
           !loading ?
             <>
-              <SongDetails language={language} search={search} lyric={lyric} bio={bio} songOrArtist={songOrArtist} />
+              <SongDetails language={language} search={search} lyric={lyric} bio={bio} songOrArtist={songOrArtist} 
+              handleSearch={handleSearch}  />
               <ButtonToUp />
             </>
             :
@@ -24,7 +25,7 @@ const SongPage = ({ loading, search, lyric, setLyric, bio, setBio, handleSaveSon
         }
       </div>
       {
-        lyric?.lyrics ? <ButtonFavorite handleSaveSong={handleSaveSong} /> : null
+        lyric?.lyrics ? <ButtonFavorite handleDeleteSong={handleDeleteSong} handleSaveSong={handleSaveSong} id={bio.artists[0].idArtist} /> : null
       }
     </>
   )

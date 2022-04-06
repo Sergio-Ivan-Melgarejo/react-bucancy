@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import { HashRouter, Routes, Route, NavLink } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import Home from './page/Home';
 import ErrorPage from './page/ErrorPage';
 import SongPage from './page/SongPage';
@@ -12,11 +12,10 @@ import ButtonLanguages from './components/ButtonLanguages';
 import SongDetails from './components/SongDetails';
 
 // localStorage
-let mySongsInit = JSON.parse(localStorage.getItem("mySongs")) || [];
 let getDark = localStorage.getItem("dark");
 getDark ? getDark = JSON.parse(getDark) : getDark = true;
-
 let getLanguage = localStorage.getItem("language") || "EN";
+const getMySongs = JSON.parse(localStorage.getItem("mySongs")) || [];
 
 function App() {
   const [dark, setDark] = useState(getDark)
@@ -26,7 +25,7 @@ function App() {
   const [lyric, setLyric] = useState(null)
   const [bio, setBio] = useState(null)
   const [loading, setLoading] = useState(false)
-  const [mySongs, setMySongs] = useState(mySongsInit)
+  const [mySongs, setMySongs] = useState(getMySongs)
 
   useEffect(() => {
     if(search === null) return;
@@ -49,10 +48,13 @@ function App() {
       setLoading(false)
     }
 
-    localStorage.setItem("mySong", JSON.stringify(mySongs))
-
     fetchData();
-  }, [search, mySongs])
+  }, [search, ])
+
+    useEffect(() => {
+      localStorage.setItem("mySongs", JSON.stringify(mySongs))
+    }, [mySongs])
+  
   
   const handleSearch = (data) =>{
     setSearch(data);
@@ -60,10 +62,35 @@ function App() {
 
   const handleSaveSong = () =>{
     // añadir componente de carte de guardando
+    let included = false;
+
+    for(let i=0; i<mySongs.length;i++){
+      if (search.song === mySongs[i].search.song){
+        included = true;
+        break
+      }
+    }
+
+    if(!included){
+      let currentSong = {search,lyric,bio}
+
+      setMySongs((mySongs)=>[...mySongs,currentSong])
+    }
   }
 
   const handleDeleteSong = (id) =>{
-    // añadir componente de carte de elimido
+    // let included = false;
+    // for(let i=0; i<mySongs.length;i++){
+    //   if (id === mySongs[i].bio.artists[0].idArtist){
+    //     included = true;
+    //     break
+    //   }
+    // }
+
+    // if(included){
+      let filter = mySongs.filter(el => id !== el.bio.artists[0].idArtist)
+      setMySongs(filter)
+    // }
   }
 
   return (
@@ -73,9 +100,14 @@ function App() {
         <Routes>
           <Route path="/" element={
             <Home 
-              handleSearch={handleSearch} 
               dark={dark}
               language={language}
+              mySongs={mySongs}
+              handleSearch={handleSearch} 
+              handleDeleteSong={handleDeleteSong}
+              setBio={setBio}
+              setLyric={setLyric} 
+              setSearch={setSearch}
             />
           }/>
 
@@ -84,9 +116,33 @@ function App() {
               search={search}
               lyric={lyric} setLyric={setLyric} 
               bio={bio} setBio={setBio}
-              handleSaveSong={handleSaveSong}
               language={language}
               loading={loading}
+              handleSearch={handleSearch} 
+              handleSaveSong={handleSaveSong}
+              handleDeleteSong={handleDeleteSong}
+            />
+          }>
+            <Route path=':id' element={
+            <SongDetails 
+            language={language} 
+            search={search} 
+            lyric={lyric} 
+            bio={bio} 
+            />
+            } />
+          </Route>
+
+          
+          <Route path="/song/*" element={
+            <SongPage 
+              search={search}
+              lyric={lyric} setLyric={setLyric} 
+              bio={bio} setBio={setBio}
+              language={language}
+              loading={loading}
+              handleSaveSong={handleSaveSong}
+              handleDeleteSong={handleDeleteSong}
             />
           }>
             <Route path=':id' element={
@@ -99,7 +155,7 @@ function App() {
             } />
           </Route>
           
-          <Route path="*" element={<ErrorPage/>} />
+          <Route path="*" element={<ErrorPage language={language} />} />
         </Routes>
 
       </HashRouter>

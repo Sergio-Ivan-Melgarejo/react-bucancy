@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import "./buttonFavorite.css"
 
-const ButtonFavorite = ({handleSaveSong}) => {
+const ButtonFavorite = ({handleSaveSong,handleDeleteSong,id}) => {
     const [added, setadded] = useState(false)
     const handleClick = () =>{
+        if(!added) handleSaveSong();
+        else handleDeleteSong(id);
         setadded(!added)
-        handleSaveSong()
     }
 
     return (

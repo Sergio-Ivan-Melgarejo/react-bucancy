@@ -4,7 +4,7 @@ import "./buttonLanguage.css"
 const ButtonLanguages = ({language, setLanguage}) => {
     const handleClick = () =>{
         if(language === "EN"){
-            setLanguage("es")
+            setLanguage("ES")
             localStorage.setItem("language","ES")
         }
         else{
