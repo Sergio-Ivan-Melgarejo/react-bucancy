@@ -9,7 +9,7 @@ const FavoritesItem = ({handleDeleteSong,song}) => {
     }
 
     const handlePlay = () =>{
-        navigate(`/song/${song.bio.artists[0].idArtist}`)
+        navigate(`/song/${song.search.artist}=${song.search.song}`)
     }
     // console.log(song)
     return (

@@ -1,13 +1,26 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./buttonFavorite.css"
 
-const ButtonFavorite = ({handleSaveSong,handleDeleteSong,id}) => {
+const ButtonFavorite = ({handleSaveSong,handleDeleteSong,id,search,mySongs}) => {
     const [added, setadded] = useState(false)
     const handleClick = () =>{
         if(!added) handleSaveSong();
         else handleDeleteSong(id);
         setadded(!added)
     }
+
+    useEffect(() => {
+        mySongs.forEach(song=>{
+            let songOne = song.search.song.toLowerCase()
+            let songTwo = search.song.toLowerCase()
+            let artistOne = song.search.artist.toLowerCase()
+            let artistTwo = search.artist.toLowerCase()
+
+            if(songOne === songTwo && artistOne === artistTwo) setadded(true)
+            else setadded(false)
+        })
+    }, [])
+    
 
     return (
         <button onClick={handleClick} className='buttonFavorite' title='Add to Favorite' >

@@ -121,6 +121,7 @@ function App() {
               handleSearch={handleSearch} 
               handleSaveSong={handleSaveSong}
               handleDeleteSong={handleDeleteSong}
+              mySongs={mySongs}
             />
           }>
             <Route path=':id' element={

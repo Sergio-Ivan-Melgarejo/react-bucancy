@@ -7,14 +7,13 @@ import Bg from './Bg'
 import { useNavigate, useParams } from 'react-router-dom'
 
 const SongDetails = ({search,lyric,bio,songOrArtist, language, handleSearch}) => {
-  const params = useParams();
   const navigate = useNavigate();
+  const params = useParams();
 
   // if(!lyric || !bio) return null;
 
   if(!lyric || !bio || !search){
-    console.log(!params.id,params.id)
-      if(!params.id) {
+      if(params.id === undefined) {
         navigate("/this-page-do-not-exist/")
         return null
     }
