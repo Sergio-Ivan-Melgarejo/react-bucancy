@@ -11,7 +11,7 @@ const FavoritesItem = ({handleDeleteSong,song}) => {
     const handlePlay = () =>{
         navigate(`/song/${song.search.artist}=${song.search.song}`)
     }
-    // console.log(song)
+    
     return (
         <button className='favorite__container'>
             <img className='favorite__logo' src={song.bio.artists[0].strArtistLogo} alt={song.search.artist} />
